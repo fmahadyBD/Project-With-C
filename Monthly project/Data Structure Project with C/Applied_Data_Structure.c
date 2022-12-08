@@ -13,8 +13,10 @@ int Linkedlist()  ;
 int Liniar_Search();
 int searching();
 int Sorting()  ;
-
-
+int bainararySearch();
+void Bubble_sort();
+void countSort();
+int InsertionSort();
 int main()     
 
 {
@@ -53,6 +55,25 @@ int main()
         return 0;
 }
 
+/*
+1. main have
+        -> Searching
+        -> Sorting
+2. linkedeliat
+ ** Searching 
+        ->Linier search
+        ->Bainarary Search with bubble sort
+
+** Sorting
+        ->Bubble_sort()
+        ->countSort();
+        ->InsertionSort()
+        ->Selection()
+
+
+*/
+
+
 int searching()     
 
 {
@@ -71,7 +92,7 @@ int searching()
                                          Liniar_Search();
                                         break;
                         case 2:
-                                        // display();
+                                       bainararySearch();
                                         break;
                         case 3: 
                                      exit(0);
@@ -94,10 +115,10 @@ int Sorting()
         while(1){
                
                 printf("\n                MENU                             \n");
-                printf("\n 1.     \n");
-                printf("\n 2.    \n");
-                printf("\n 3.   \n");
-                printf("\n 4.  \n");
+                printf("\n 1.Bubble Sort     \n");
+                printf("\n 2.countsort    \n");
+                printf("\n 3.Insertion Sort   \n");
+                printf("\n 4.Selection Sort  \n");
                 printf("\n 5.       \n");
                 printf("\n 6.      \n");
                 printf("\n 7.       \n");
@@ -108,16 +129,16 @@ int Sorting()
                 switch(choice)
                 {
                         case 1:
-                                         Liniar_Search();
+                                         Bubble_sort();
                                         break;
                         case 2:
-                                      
+                                      countSort();
                                         break;
                         case 3: 
-                                        
+                                       InsertionSort() ;
                                         break;
                         case 4:
-                                        
+                                        Selection();
                                         break;
                         case 5:
                                        
@@ -444,8 +465,203 @@ void delete_pos()
                 }
         }
 }
+int bainararySearch(){
+    int aa[100];
+    int n, i, j, f, k, b = 0, t, x = 0, tem;
+
+    int s = 0, e, mid;
+    printf("Enter the range:\n");
+    scanf("%d", &n);
+    printf("Enter the Array Element\n");
+    for (i = 0; i < n; i++)
+    {
+        printf("Enter the Array Element of %d \n", i);
+        scanf("%d", &aa[i]);
+    }
+
+    for (i = 1; i < n; i++)
+    {
+        for (j = 0; j < n - i; j++)
+        {
+
+            if (aa[j] > aa[j + 1])
+            {
+                tem = aa[j];
+                aa[j] = aa[j + 1];
+                aa[j + 1] = tem;
+            }
+        }
+    }
+
+    printf("Target for search: :\n");
+    scanf("%d", &t);
+
+    while (s <= n)
+    {
+
+        mid = (s + n) / 2;
+        if (aa[mid] == t)
+        {
+            printf("Matched index %d", mid);
+            return 0;
+        }
+        else if (aa[mid] < t)
+        {
+            s = mid + 1;
+        }
+        else if (aa[mid] > t)
+        {
+            n = mid - 1;
+        }
+    }
+    x++;
+    if (x > 0)
+    {
+        printf("hay man,, this element Not found");
+    }
+
+    return 0;
+}
+void Bubble_sort()
+{
+    int a[5] = {1, 5, 7, 2, 3};
+    int i, j, tem;
+    for (i = 1; i < 5; i++)
+    {
+        for (j = 0; j < 5 - i; j++)
+        {
+            /*
+            what is the different Between Selection Sort And Bubble sort?
+            ans:
+            1.In bubble sort, two adjacent elements are compared  If the adjacent elements are not
+            at the correct position, swapping would be performed.
+            
+            2.In selection sort, the minimum element is selected from the array and
+            swap with an element which is at the beginning of the unsorted sub array.
+ 
+            */
+            if (a[j] > a[j + 1])
+            {
+                tem = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = tem;
+            }
+        }
+    }
+    for (i = 0; i < 5; i++)
+    {
+        printf("%d ", a[i]);
+    }
+}
+void countSort()
+{
+
+    int max = 0;
+    int j;
+    int size;
+
+    printf("Enter the array size: \n");
+
+    scanf("%d", &size);
+    int a[size];
+    int b[size];
+    printf("Enter the array Element:\n");
+    for (int i = 0; i < size; i++)
+    {
+
+        scanf("%d", &a[i]);
+    }
 
 
 
+    for (int i = 0; i < size; i++)
+    {
+        if (max < a[i])
+        {
+            max = a[i];
+        }
+    }
+
+    int c[max + 1];
+
+    for (int i = 0; i < max; i++)
+    {
+
+        c[i] = 0;
+    }
+
+    for (int i = 0; i < size ; i++)
+    {
+
+        int temp = a[i];
+        c[temp] = c[temp] + 1;
+ 
+    }
+ 
+
+    printf("The result of counting sort: \n");
+
+    for (int i = 0; i <= max; i++)
+    {
+
+        if (c[i] != 0)
+        {
+
+            while (c[i] != 0)
+            {
+                printf("%d ", i);
+                --c[i];
+            }
+        }
+    }
+}
+int InsertionSort()
+{
+    int a[5] = {1, 7, 7, 3, 2};
+    int i, value, hole;
+
+    for (int i = 1; i < 5; i++)
+    {
+        value = a[i];
+        hole = i;
+        while (hole > 0 && a[hole - 1] > value)
+        {
+            a[hole] = a[hole - 1];
+            hole--;
+        }
+        a[hole] = value;
+    }
+    for (i = 0; i < 5; i++)
+    {
+        printf("%d ", a[i]);
+    }
+}
+int Selection()
+{
+
+    int a[] = {2, 4, 1, 6, 3, 7, 0};
+    int i, j, min_index, tem;
+
+    for (i = 0; i < 6; i++)
+    {
+        min_index = i;
+
+        for (j = i + 1; j < 6; j++)
+        {
+            if (a[j] < a[min_index])
+            {
+                min_index = j;
+               // printf("%d  ",j);
+            }
+            tem = a[j];
+            a[i] = a[min_index];
+            a[min_index] = tem;
+        }
+    }
+    for (i = 0; i < 6; i++)
+    {
+        printf("%d ", a[i]);
+    }
+}
 
 
