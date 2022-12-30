@@ -44,7 +44,7 @@ int main()
                                        Sorting() ;  
                                         break;
                         case 3: 
-                                        // insert_begin();
+                                         Linkedlist() ;
                                         break;
                         case 4:
                    
@@ -57,30 +57,14 @@ int main()
                              
                         default:
                                         printf("\n Wrong Choice:\n");
-                                            // main();
+                                          
                                         break;
                 }
         }
         return 0;
 }
 
-/*
-1. main have
-        -> Searching
-        -> Sorting
-2. linkedeliat
- ** Searching 
-        ->Linier search
-        ->Bainarary Search with bubble sort
 
-** Sorting
-        ->Bubble_sort()
-        ->countSort();
-        ->InsertionSort()
-        ->Selection()
-
-
-*/
 
 
 int searching()     
@@ -149,26 +133,11 @@ int Sorting()
                         case 4:
                                         Selection();
                                         break;
-                        case 5:
-                                       
-                                        break;
-                        case 6:
-                                        
-                                        break;
-                        case 7:
-                                     
-                                        break;
-                        case 8:
-                                      
-                                        break;
-                        
-                        case 9:
-                                      
-                                        break;
+                    
                              
                         default:
                                         printf("\n Wrong Choice:\n");
-                                            // main();
+                                          
                                         break;
                 }
         }
@@ -204,7 +173,7 @@ int Liniar_Search()
     }
 }
 
-// --------------------------->>>>>>>>>>>>>>>>
+
 struct node
 {
         int info;
