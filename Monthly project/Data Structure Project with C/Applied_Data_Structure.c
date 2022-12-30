@@ -73,7 +73,7 @@ void dequeue(){
    }
 }
 
-void displays(){
+void display(){
     int i;
     if(front == -1 || rear == -1)
     {
@@ -104,7 +104,7 @@ int Qeue()
           dequeue(); 
           break;
        case 3:
-          displays(); 
+          display(); 
           break;
        case 4:
           return 0;  
@@ -606,7 +606,11 @@ int bainararySearch(){
 }
 void Bubble_sort()
 {
-    int a[5] = {1, 5, 7, 2, 3};
+    int a[5] ;
+    for(int i=0;i<5;i++){
+        printf("Enter the element of %d\n",i);
+        scanf("%d",&a[i]);
+    }
     int i, j, tem;
     for (i = 1; i < 5; i++)
     {
@@ -690,8 +694,13 @@ void countSort()
 }
 int InsertionSort()
 {
-    int a[5] = {1, 7, 7, 3, 2};
-    int i, value, hole;
+       int i, value, hole;
+  int a[5] ;
+    for( i=0;i<5;i++){
+        printf("Enter the element of %d\n",i);
+        scanf("%d",&a[i]);
+    }
+ 
 
     for (int i = 1; i < 5; i++)
     {
@@ -712,8 +721,13 @@ int InsertionSort()
 int Selection()
 {
 
-    int a[] = {2, 4, 1, 6, 3, 7, 0};
+ 
     int i, j, min_index, tem;
+      int a[5] ;
+    for( i=0;i<5;i++){
+        printf("Enter the element of %d\n",i);
+        scanf("%d",&a[i]);
+    }
 
     for (i = 0; i < 6; i++)
     {
@@ -724,7 +738,7 @@ int Selection()
             if (a[j] < a[min_index])
             {
                 min_index = j;
-               // printf("%d  ",j);
+
             }
             tem = a[j];
             a[i] = a[min_index];
