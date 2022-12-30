@@ -218,9 +218,9 @@ int Sorting()
                
                 printf("\n                MENU                             \n");
                 printf("\n 1.Bubble Sort     \n");
-                printf("\n 2.countsort    \n");
-                printf("\n 3.Insertion Sort   \n");
-                printf("\n 4.Selection Sort  \n");
+
+                printf("\n 2.Insertion Sort   \n");
+                printf("\n 3.Selection Sort  \n");
                 printf("Enter your choice:\t");
                 scanf("%d",&choice);
                 switch(choice)
@@ -228,13 +228,12 @@ int Sorting()
                         case 1:
                                          Bubble_sort();
                                         break;
-                        case 2:
-                                      countSort();
+
                                         break;
-                        case 3: 
+                        case 2: 
                                        InsertionSort() ;
                                         break;
-                        case 4:
+                        case 3:
                                         Selection();
                                         break;
                     
@@ -630,68 +629,7 @@ void Bubble_sort()
         printf("%d ", a[i]);
     }
 }
-void countSort()
-{
 
-    int max = 0;
-    int j;
-    int size;
-
-    printf("Enter the array size: \n");
-
-    scanf("%d", &size);
-    int a[size];
-    int b[size];
-    printf("Enter the array Element:\n");
-    for (int i = 0; i < size; i++)
-    {
-
-        scanf("%d", &a[i]);
-    }
-
-
-
-    for (int i = 0; i < size; i++)
-    {
-        if (max < a[i])
-        {
-            max = a[i];
-        }
-    }
-
-    int c[max + 1];
-
-    for (int i = 0; i < max; i++)
-    {
-
-        c[i] = 0;
-    }
-
-    for (int i = 0; i < size ; i++)
-    {
-
-        int temp = a[i];
-        c[temp] = c[temp] + 1;
- 
-    }
- 
-
-    printf("The result of counting sort: \n");
-
-    for (int i = 0; i <= max; i++)
-    {
-
-        if (c[i] != 0)
-        {
-
-            while (c[i] != 0)
-            {
-                printf("%d ", i);
-                --c[i];
-            }
-        }
-    }
-}
 int InsertionSort()
 {
        int i, value, hole;
