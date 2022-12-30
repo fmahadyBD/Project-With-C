@@ -73,7 +73,7 @@ void dequeue(){
    }
 }
 
-void display(){
+void displays(){
     int i;
     if(front == -1 || rear == -1)
     {
@@ -104,7 +104,7 @@ int Qeue()
           dequeue(); 
           break;
        case 3:
-          display(); 
+          displays(); 
           break;
        case 4:
           return 0;  
@@ -156,11 +156,11 @@ int main()
                                          Stack();
                                         break;
                         case 5:
-                                         Qeue()
+                                         Qeue();
                                    
                                         break;
                         case 6:
-                                         Qeue()
+                                     
                                          exit(0);
                                         break;
                              
@@ -202,7 +202,7 @@ int searching()
                              
                         default:
                                         printf("\n Wrong Choice:\n");
-                                            // main();
+                                           
                                         break;
                 }
         }
@@ -221,11 +221,6 @@ int Sorting()
                 printf("\n 2.countsort    \n");
                 printf("\n 3.Insertion Sort   \n");
                 printf("\n 4.Selection Sort  \n");
-                printf("\n 5.       \n");
-                printf("\n 6.      \n");
-                printf("\n 7.       \n");
-                printf("\n 8.     \n");
-                printf("\n 9.Exit       \n");
                 printf("Enter your choice:\t");
                 scanf("%d",&choice);
                 switch(choice)
@@ -617,16 +612,7 @@ void Bubble_sort()
     {
         for (j = 0; j < 5 - i; j++)
         {
-            /*
-            what is the different Between Selection Sort And Bubble sort?
-            ans:
-            1.In bubble sort, two adjacent elements are compared  If the adjacent elements are not
-            at the correct position, swapping would be performed.
-            
-            2.In selection sort, the minimum element is selected from the array and
-            swap with an element which is at the beginning of the unsorted sub array.
- 
-            */
+
             if (a[j] > a[j + 1])
             {
                 tem = a[j];
