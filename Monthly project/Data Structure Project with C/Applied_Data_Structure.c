@@ -18,6 +18,9 @@ void Bubble_sort();
 void countSort();
 int InsertionSort();
 int Selection();
+int Stack();
+
+
 int main()     
 
 {
@@ -28,7 +31,8 @@ int main()
                 printf("\n 1.Searching     \n");
                 printf("\n 2.Sorting    \n");
                 printf("\n 3.Linkedlist       \n");
-                printf("\n 4.Exit       \n");
+                printf("\n 4.Stack       \n");
+                printf("\n 8.Exit       \n");
                 printf("Enter your choice:\t");
                 scanf("%d",&choice);
                 switch(choice)
@@ -43,6 +47,10 @@ int main()
                                         // insert_begin();
                                         break;
                         case 4:
+                   
+                                         Stack();
+                                        break;
+                        case 8:
                    
                                          exit(0);
                                         break;
@@ -665,3 +673,62 @@ int Selection()
     }
 }
 
+
+
+
+int Stack(){
+    int stack[10];
+int top=-1;
+int max;
+
+int d;
+printf("Enter your Stack Size:");
+scanf("%d",&max);
+while (1)
+{
+
+printf("\nEnter 1 for pop\nEnter 2 for push\nEnter 3 for show\n Enter 4 for exit\n");
+scanf("%d",&d);
+switch (d)
+{
+case 1:
+     if(top==-1){
+        printf("There is no element to pop\n");
+    }else{
+     top--;
+         printf("Successfully Pop the element:\n");
+    }
+    break;
+case 2:
+ if(top==max){
+     printf("The Stack is not empty:\n");
+    return 0;
+}else{
+    top++;
+    printf("Enter the element that you want to push:\n");
+    scanf("%d",&stack[top]);
+    printf("your %d is succssfully Addede\n",stack[top]);
+
+
+}
+    break;
+case 3:
+ if(top==-1){
+        printf("No element found\n");
+        return 0;
+    }else{
+printf("Your Stacck is:\n");
+for(int i=0;i<=top;i++){
+    printf("%d\n",stack[i]);
+}
+    }
+    break;
+
+default:
+    return 0;
+    break;
+}
+}
+
+
+}
