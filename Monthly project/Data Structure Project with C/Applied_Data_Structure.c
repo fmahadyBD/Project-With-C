@@ -20,7 +20,44 @@ int InsertionSort();
 int Selection();
 int Stack();
 
+void swap(int *x, int *y)
+{
+    int t = *x;
+    *x = *y;
+    *y = t;
+}
+ 
+void selectionSort(int a[], int n)
+{
+   int i, j;
+   for (i=0;i<n-1;i++){
+       for (j=i+1;j<n;j++){
+           if(a[i]>a[j]){
+               swap(&a[i], &a[j]);
+           }
+       }
+   }    
+}
+ 
+void printArray(int a[], int size)
+{
+    int i;
+    for (i=0; i < size; i++){
+        printf("%d ", a[i]);
+    }
+}
 
+int Selection()
+{
+    int a[] = {64, 25, 25, 12, 22, 11, 90};
+    int n = sizeof(a)/sizeof(a[0]);
+    printf("Initial array: \n");
+    printArray(a, n);
+    selectionSort(a, n);
+    printf("\nSorted array: \n");
+    printArray(a, n);
+    return 0;
+}
 
 #define MAX 10 
 
@@ -652,38 +689,6 @@ int InsertionSort()
         a[hole] = value;
     }
     for (i = 0; i < 5; i++)
-    {
-        printf("%d ", a[i]);
-    }
-}
-int Selection()
-{
-
- 
-    int i, j, min_index, tem;
-      int a[5] ;
-    for( i=0;i<5;i++){
-        printf("Enter the element of %d\n",i);
-        scanf("%d",&a[i]);
-    }
-
-    for (i = 0; i < 6; i++)
-    {
-        min_index = i;
-
-        for (j = i + 1; j < 6; j++)
-        {
-            if (a[j] < a[min_index])
-            {
-                min_index = j;
-
-            }
-            tem = a[j];
-            a[i] = a[min_index];
-            a[min_index] = tem;
-        }
-    }
-    for (i = 0; i < 6; i++)
     {
         printf("%d ", a[i]);
     }
