@@ -73,7 +73,7 @@ void dequeue(){
    }
 }
 
-void display(){
+void displays(){
     int i;
     if(front == -1 || rear == -1)
     {
@@ -104,7 +104,7 @@ int Qeue()
           dequeue(); 
           break;
        case 3:
-          display(); 
+          displays(); 
           break;
        case 4:
           return 0;  
