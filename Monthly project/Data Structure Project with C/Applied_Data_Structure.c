@@ -131,13 +131,13 @@ int main()
         int choice;
         while(1){
                
-                printf("\n                MENU                             \n");
+                 printf("\n\t\t                MENU                             \n\n");
                 printf("\n 1.Searching     \n");
                 printf("\n 2.Sorting    \n");
                 printf("\n 3.Linkedlist       \n");
                 printf("\n 4.Stack       \n");
-                printf("\n 5.Exit       \n");
-                printf("\n 6.Exit       \n");
+                printf("\n 5.Queue      \n");
+                printf("\n 6.Exit       \n\n\n");
                 printf("Enter your choice:\t");
                 scanf("%d",&choice);
                 switch(choice)
@@ -182,10 +182,10 @@ int searching()
         int choice;
         while(1){
                
-                printf("\n                MENU                             \n");
+                printf("\n\t\t                MENU                             \n\n");
                 printf("\n 1.Liniar search     \n");
                 printf("\n 2.bainarary Search    \n");
-                printf("\n 3.Exit  Searching Functions     \n");
+                printf("\n 3.Exit  Searching Functions     \n\n");
                 printf("Enter your choice:\t");
                 scanf("%d",&choice);
                 switch(choice)
