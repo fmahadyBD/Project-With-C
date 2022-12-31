@@ -326,8 +326,8 @@ int Linkedlist()
         while(1){
                
 
-                printf("\n 1.Create     \n");
-                printf("\n 2.Display    \n");
+                printf("\n 1.Create  \n");
+                printf("\n 2.Display   \n");
                 printf("\n 3.Insert at the beginning    \n");
                 printf("\n 4.Insert at the end  \n");
                 printf("\n 5.Insert at specified position       \n");
