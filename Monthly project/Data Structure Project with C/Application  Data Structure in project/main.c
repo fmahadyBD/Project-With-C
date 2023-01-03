@@ -129,14 +129,15 @@ int Linkedlist()
         while(1){
                
 
-                printf("\n 1.Create  \n");
-                printf("\n 2.Display   \n");
-                printf("\n 3.Insert at the beginning    \n");
-                printf("\n 4.Insert at the end  \n");
-                printf("\n 5.Insert at specified position       \n");
-                printf("\n 6.Delete from beginning      \n");
-                printf("\n 7.Delete from the end        \n");
-                printf("\n 8.Delete from specified position     \n");
+                printf("\n Book self management system\n\n  \n");
+                printf("\n 1.Create a self  \n");
+                printf("\n 2.Display Th book  \n");
+                printf("\n 3.Push at the beginning    \n");
+                printf("\n 4.Push at the end  \n");
+                printf("\n 5.Push at specified position       \n");
+                printf("\n 6.remove from beginning      \n");
+                printf("\n 7.remove  from the end        \n");
+                printf("\n 8.remove  from specified position     \n");
                 printf("\n 9.Exit       \n");
                 printf("Enter your choice:\t");
                 scanf("%d",&choice);
@@ -185,10 +186,10 @@ void create()
         temp=(struct node *)malloc(sizeof(struct node));
         if(temp==NULL)
         {
-                printf("\nOut of Memory Space:\n");
+                printf("\nOut of shelf Space:\n");
                 exit(0);
         }
-        printf("\nEnter the data value for the node:\t");
+        printf("\nEnter the page of book for the cell:\t");
         scanf("%d",&temp->info);
         temp->next=NULL;
         if(start==NULL)
