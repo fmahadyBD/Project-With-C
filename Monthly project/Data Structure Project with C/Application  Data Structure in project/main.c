@@ -47,7 +47,7 @@ int Sorting()
     while (1)
     {
 
-        printf("\n                MENU                             \n");
+        printf("\n          Student marking management system                        \n");
         printf("\n 1.Bubble Sort  for sortd the result   \n");
         printf("\n 2.Insertion Sort for sortd the result   \n");
         printf("\n 3.Selection Sort for sortd the result  \n");
