@@ -256,7 +256,6 @@ int Sorting()
     }
     return 0;
 }
-//--------------------------
 
 void lcreate()
 {
@@ -678,7 +677,6 @@ int Linkedlist()
     }
 }
 
-//---------------------
 
 void create()
 {
