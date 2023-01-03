@@ -1,4 +1,3 @@
-
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -28,6 +27,44 @@ int login()
         exit(0);
     }
 }
+
+int Sorting()     
+
+{
+        int choice;
+        while(1){
+               
+                printf("\n                MENU                             \n");
+                printf("\n 1.Bubble Sort     \n");
+
+                printf("\n 2.Insertion Sort   \n");
+                printf("\n 3.Selection Sort  \n");
+                printf("Enter your choice:\t");
+                scanf("%d",&choice);
+                switch(choice)
+                {
+                        case 1:
+                                       
+                                        break;
+
+                                        break;
+                        case 2: 
+                                       
+                                        break;
+                        case 3:
+                                       
+                                        break;
+                    
+                             
+                        default:
+                                        printf("\n Wrong Choice:\n");
+                                          
+                                        break;
+                }
+        }
+        return 0;
+}
+
 int main()
 {
 
@@ -109,3 +146,5 @@ int main()
 
     return 0;
 }
+
+
