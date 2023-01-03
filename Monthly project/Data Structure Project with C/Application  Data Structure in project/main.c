@@ -28,68 +28,68 @@ int login()
     }
 }
 
-int Sorting()  
+int Sorting()
 
 {
     int size;
     prinf("ENter the number of student ");
-    scanf("%d",&size);
-    int a[5] ;
+    scanf("%d", &size);
+    int a[5];
     int i, j, tem;
 
-        for(int i=0;i<size;i++){
-        printf("Enter the element of %d\n",i);
-        scanf("%d",&a[i]);
-    }
-        int choice;
-        while(1){
-               
-                printf("\n                MENU                             \n");
-                printf("\n 1.Bubble Sort     \n");
-
-                printf("\n 2.Insertion Sort   \n");
-                printf("\n 3.Selection Sort  \n");
-                printf("Enter your choice:\t");
-                scanf("%d",&choice);
-                switch(choice)
-                {
-                        case 1:
-                         for (i = 1; i < 5; i++)
+    for (int i = 0; i < size; i++)
     {
-        for (j = 0; j < 5 - i; j++)
+        printf("The marks of student %d: \n", i);
+        scanf("%d", &a[i]);
+    }
+    int choice;
+    while (1)
+    {
+
+        printf("\n                MENU                             \n");
+        printf("\n 1.Bubble Sort  for sortd the result   \n");
+        printf("\n 2.Insertion Sort for sortd the result   \n");
+        printf("\n 3.Selection Sort for sortd the result  \n");
+        printf("Enter your choice:\t");
+        scanf("%d", &choice);
+        switch (choice)
         {
-
-            if (a[j] > a[j + 1])
+        case 1:
+            for (i = 1; i < 5; i++)
             {
-                tem = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = tem;
-            }
-        }
-    }
-    for (i = 0; i < 5; i++)
-    {
-        printf("%d ", a[i]);
-    }
-                                       
-                                        break;
+                for (j = 0; j < 5 - i; j++)
+                {
 
-                                        break;
-                        case 2: 
-                                       
-                                        break;
-                        case 3:
-                                       
-                                        break;
-                    
-                             
-                        default:
-                                        printf("\n Wrong Choice:\n");
-                                          
-                                        break;
+                    if (a[j] > a[j + 1])
+                    {
+                        tem = a[j];
+                        a[j] = a[j + 1];
+                        a[j + 1] = tem;
+                    }
                 }
+            }
+            for (i = 0; i < 5; i++)
+            {
+                printf("%d ", a[i]);
+            }
+
+        
+
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+
+        default:
+            printf("\n Wrong Choice:\n");
+
+            break;
         }
-        return 0;
+    }
+    return 0;
 }
 
 int main()
@@ -173,5 +173,3 @@ int main()
 
     return 0;
 }
-
-
