@@ -28,9 +28,11 @@ int login()
     }
 }
 
-int Sorting()     
+int Sorting()  
 
 {
+ int a[5] ;
+    int i, j, tem;
         int choice;
         while(1){
                
@@ -44,6 +46,23 @@ int Sorting()
                 switch(choice)
                 {
                         case 1:
+                         for (i = 1; i < 5; i++)
+    {
+        for (j = 0; j < 5 - i; j++)
+        {
+
+            if (a[j] > a[j + 1])
+            {
+                tem = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = tem;
+            }
+        }
+    }
+    for (i = 0; i < 5; i++)
+    {
+        printf("%d ", a[i]);
+    }
                                        
                                         break;
 
