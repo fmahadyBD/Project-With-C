@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#define MAX 10 
+#define MAX 10
 int front = -1, rear = -1, circQueue[MAX];
 int pas[10];
 int usr[10];
@@ -13,21 +13,14 @@ void insert_pos();
 void delete_begin();
 void delete_end();
 void delete_pos();
-int Linkedlist()  ;
+int Linkedlist();
 
 struct node
 {
-        int info;
-        struct node *next;
+    int info;
+    struct node *next;
 };
-struct node *start=NULL;
-
-
-
-
-
-
-
+struct node *start = NULL;
 
 // Log in with lear search
 int login()
@@ -36,9 +29,9 @@ int login()
     usr[0] = 1;
     pas[0] = 1;
     int kk = 0;
-    int lg1,lg2;
+    int lg1, lg2;
     printf("Enter username and Password:");
-    scanf("%d %d", &lg1,&lg2);
+    scanf("%d %d", &lg1, &lg2);
     for (int i = 0; i < 10; i++)
     {
         if (pas[i] == lg1 && usr[i] == lg2)
@@ -53,102 +46,109 @@ int login()
     }
 }
 
-void enqueue(){
-   int num;
-   printf("Enter the number to be inserted: ");
-   scanf("%d", &num);
+void enqueue()
+{
+    int num;
+    printf("Enter the number to be inserted: ");
+    scanf("%d", &num);
 
+    if (rear == MAX - 1)
+    {
+        printf("Overflow");
+    }
 
-   if(rear == MAX-1){
-      printf("Overflow");
-   }
+    else if (front == -1 && rear == -1)
+    {
+        front = 0;
+        rear = 0;
+    }
 
-   else if(front == -1 && rear == -1){
-      front = 0;
-      rear = 0;
-   }
-  
-   else if(rear == MAX - 1 && front != 0){
-      rear = 0;
-   }
-   else {
-      rear += 1;
-   }
+    else if (rear == MAX - 1 && front != 0)
+    {
+        rear = 0;
+    }
+    else
+    {
+        rear += 1;
+    }
 
-   circQueue[rear] = num;
+    circQueue[rear] = num;
 }
 
+void dequeue()
+{
 
-void dequeue(){
+    if (front == -1)
+    {
+        printf("noone in line");
+    }
 
-   if(front == -1){
-      printf("noone in line");
-   }
+    else if (front == rear)
+    {
+        front = -1;
+        rear = -1;
+    }
 
-   else if(front == rear){
-      front = -1;
-      rear = -1;
-   }
-
-   else if(front == MAX - 1){
-      front = 0;
-   }
-   else {
-      front += 1;
-   }
+    else if (front == MAX - 1)
+    {
+        front = 0;
+    }
+    else
+    {
+        front += 1;
+    }
 }
 
-void displays(){
+void displays()
+{
     int i;
-    if(front == -1 || rear == -1)
+    if (front == -1 || rear == -1)
     {
         printf("\nEmpty line\n");
     }
-    else {
-       printf("The line is: ");
-       for (i = front; i <= rear; i++){
-       printf("%d ", circQueue[i]);
+    else
+    {
+        printf("The line is: ");
+        for (i = front; i <= rear; i++)
+        {
+            printf("%d ", circQueue[i]);
+        }
+        printf("\n");
     }
-    printf("\n");
-  }
 }
 
 int Qeue()
 {
-  printf("Welcome to ticket manage ment systtem:\n");
+    printf("Welcome to ticket manage ment systtem:\n");
     int choice;
-    while(1){
+    while (1)
+    {
         printf("Enter your choice: \n1. Join n line forticket \n");
         printf("\n2.Ticket provide:\n");
         printf("\n3. Display the line of numbers are wating forticket\n4. Exit\n");
         printf("4. Exit\n");
         scanf("%d", &choice);
 
-    switch(choice){
-       case 1:
-          enqueue(); 
-          break;
-       case 2:
-          dequeue(); 
-          break;
-       case 3:
-          displays(); 
-          break;
-       case 4:
-          return 0;  
-       default:
-          printf("Enter valid choice");
-          break;
-       }
+        switch (choice)
+        {
+        case 1:
+            enqueue();
+            break;
+        case 2:
+            dequeue();
+            break;
+        case 3:
+            displays();
+            break;
+        case 4:
+            return 0;
+        default:
+            printf("Enter valid choice");
+            break;
+        }
     }
     return 0;
 }
-
-
-
-
-
-
 
 void swap(int *x, int *y)
 {
@@ -156,9 +156,6 @@ void swap(int *x, int *y)
     *x = *y;
     *y = t;
 }
-
-
-
 
 int Sorting()
 
@@ -168,7 +165,7 @@ int Sorting()
     scanf("%d", &size);
     int a[5];
     int i, j, tem;
-         int  value, hole;
+    int value, hole;
 
     for (int i = 0; i < size; i++)
     {
@@ -209,45 +206,45 @@ int Sorting()
             break;
         case 2:
 
+            for (int i = 1; i < size; i++)
+            {
+                value = a[i];
+                hole = i;
+                while (hole > 0 && a[hole - 1] > value)
+                {
+                    a[hole] = a[hole - 1];
+                    hole--;
+                }
+                a[hole] = value;
+            }
 
-for (int i = 1; i < size; i++)
-    {
-        value = a[i];
-        hole = i;
-        while (hole > 0 && a[hole - 1] > value)
-        {
-            a[hole] = a[hole - 1];
-            hole--;
-        }
-        a[hole] = value;
-    }
-
-       printf("The reslt of lowest to highest:");
-    for (i = 0; i < size; i++)
-    {
-        printf("%d ", a[i]);
-    }
-
+            printf("The reslt of lowest to highest:");
+            for (i = 0; i < size; i++)
+            {
+                printf("%d ", a[i]);
+            }
 
             break;
         case 3:
 
-   int i, j;
-   for (i=0;i<size-1;i++){
-       for (j=i+1;j<size;j++){
-           if(a[i]>a[j]){
-               swap(&a[i], &a[j]);
-           }
-       }
-       
-}
+            int i, j;
+            for (i = 0; i < size - 1; i++)
+            {
+                for (j = i + 1; j < size; j++)
+                {
+                    if (a[i] > a[j])
+                    {
+                        swap(&a[i], &a[j]);
+                    }
+                }
+            }
 
-   
-       printf("The reslt of lowest to highest:");
-       for (i=0; i < size; i++){
-        printf("%d ", a[i]);
-    }
-    return 0;
+            printf("The reslt of lowest to highest:");
+            for (i = 0; i < size; i++)
+            {
+                printf("%d ", a[i]);
+            }
+            return 0;
 
             break;
 
@@ -263,282 +260,286 @@ for (int i = 1; i < size; i++)
 
 void lcreate()
 {
-        struct node *temp,*ptr;
-        temp=(struct node *)malloc(sizeof(struct node));
-        if(temp==NULL)
+    struct node *temp, *ptr;
+    temp = (struct node *)malloc(sizeof(struct node));
+    if (temp == NULL)
+    {
+        printf("\nOut of shelf Space:\n");
+        exit(0);
+    }
+    printf("\nEnter the page of book for the Cell:\t");
+    scanf("%d", &temp->info);
+    temp->next = NULL;
+    if (start == NULL)
+    {
+        start = temp;
+    }
+    else
+    {
+        ptr = start;
+        while (ptr->next != NULL)
         {
-                printf("\nOut of shelf Space:\n");
-                exit(0);
+            ptr = ptr->next;
         }
-        printf("\nEnter the page of book for the Cell:\t");
-        scanf("%d",&temp->info);
-        temp->next=NULL;
-        if(start==NULL)
-        {
-                start=temp;
-        }
-        else
-        {
-                ptr=start;
-                while(ptr->next!=NULL)
-                {
-                        ptr=ptr->next;
-                }
-                ptr->next=temp;
-        }
+        ptr->next = temp;
+    }
 }
 
 void ldisplay()
 {
-        struct node *ptr;
-        if(start==NULL)
+    struct node *ptr;
+    if (start == NULL)
+    {
+        printf("\nBook self is empty:\n");
+        return;
+    }
+    else
+    {
+        ptr = start;
+        printf("\nThe book List  are:\n");
+        while (ptr != NULL)
         {
-                printf("\nBook self is empty:\n");
-                return;
+            printf("%d\t", ptr->info);
+            ptr = ptr->next;
         }
-        else
-        {
-                ptr=start;
-                printf("\nThe book List  are:\n");
-                while(ptr!=NULL)
-                {
-                        printf("%d\t",ptr->info );
-                        ptr=ptr->next ;
-                }
-        }
+    }
 }
 void linsert_begin()
 {
-        struct node *temp;
-        temp=(struct node *)malloc(sizeof(struct node));
-        if(temp==NULL)
-        {
-                printf("\nsorry not found the  Space:\n");
-                return;
-        }
-        printf("\nEnter the page of book for the Cell\t" );
-        scanf("%d",&temp->info);
-        temp->next =NULL;
-        if(start==NULL)
-        {
-                start=temp;
-        }
-        else
-        {
-                temp->next=start;
-                start=temp;
-        }
+    struct node *temp;
+    temp = (struct node *)malloc(sizeof(struct node));
+    if (temp == NULL)
+    {
+        printf("\nsorry not found the  Space:\n");
+        return;
+    }
+    printf("\nEnter the page of book for the Cell\t");
+    scanf("%d", &temp->info);
+    temp->next = NULL;
+    if (start == NULL)
+    {
+        start = temp;
+    }
+    else
+    {
+        temp->next = start;
+        start = temp;
+    }
 }
 void linsert_end()
 {
-        struct node *temp,*ptr;
-        temp=(struct node *)malloc(sizeof(struct node));
-        if(temp==NULL)
+    struct node *temp, *ptr;
+    temp = (struct node *)malloc(sizeof(struct node));
+    if (temp == NULL)
+    {
+        printf("\nsorry not found the Space:\n");
+        return;
+    }
+    printf("\nEnter the page of book for the Cell:\t");
+    scanf("%d", &temp->info);
+    temp->next = NULL;
+    if (start == NULL)
+    {
+        start = temp;
+    }
+    else
+    {
+        ptr = start;
+        while (ptr->next != NULL)
         {
-                printf("\nsorry not found the Space:\n");
-                return;
+            ptr = ptr->next;
         }
-        printf("\nEnter the page of book for the Cell:\t" );
-        scanf("%d",&temp->info );
-        temp->next =NULL;
-        if(start==NULL)
-        {
-                start=temp;
-        }
-        else
-        {
-                ptr=start;
-                while(ptr->next !=NULL)
-                {
-                        ptr=ptr->next ;
-                }
-                ptr->next =temp;
-        }
+        ptr->next = temp;
+    }
 }
 void linsert_pos()
 {
-        struct node *ptr,*temp;
-        int i,pos;
-        temp=(struct node *)malloc(sizeof(struct node));
-        if(temp==NULL)
+    struct node *ptr, *temp;
+    int i, pos;
+    temp = (struct node *)malloc(sizeof(struct node));
+    if (temp == NULL)
+    {
+        printf("\nsorry not found the Space:\n");
+        return;
+    }
+    printf("\nEnter the position for the new book to be inserted:\t");
+    scanf("%d", &pos);
+    printf("\nEnter the page number of the node:\t");
+    scanf("%d", &temp->info);
+
+    temp->next = NULL;
+    if (pos == 0)
+    {
+        temp->next = start;
+        start = temp;
+    }
+    else
+    {
+        for (i = 0, ptr = start; i < pos - 1; i++)
         {
-                printf("\nsorry not found the Space:\n");
+            ptr = ptr->next;
+            if (ptr == NULL)
+            {
+                printf("\nPosition not found for you\n");
                 return;
+            }
         }
-        printf("\nEnter the position for the new book to be inserted:\t");
-        scanf("%d",&pos);
-        printf("\nEnter the page number of the node:\t");
-        scanf("%d",&temp->info) ;
-  
-        temp->next=NULL;
-        if(pos==0)
-        {
-                temp->next=start;
-                start=temp;
-        }
-        else
-        {
-                for(i=0,ptr=start;i<pos-1;i++) { ptr=ptr->next;
-                        if(ptr==NULL)
-                        {
-                                printf("\nPosition not found for you\n");
-                                return;
-                        }
-                }
-                temp->next =ptr->next ;
-                ptr->next=temp;
-        }
+        temp->next = ptr->next;
+        ptr->next = temp;
+    }
 }
 void ldelete_begin()
 {
-        struct node *ptr;
-        if(ptr==NULL)
-        {
-                printf("\ncell is Empty:\n");
-                return;
-        }
-        else
-        {
-                ptr=start;
-                start=start->next ;
-                printf("\nThe remove book  is :%d\t",ptr->info);
-                free(ptr);
-        }
+    struct node *ptr;
+    if (ptr == NULL)
+    {
+        printf("\ncell is Empty:\n");
+        return;
+    }
+    else
+    {
+        ptr = start;
+        start = start->next;
+        printf("\nThe remove book  is :%d\t", ptr->info);
+        free(ptr);
+    }
 }
 void ldelete_end()
 {
-        struct node *temp,*ptr;
-        if(start==NULL)
+    struct node *temp, *ptr;
+    if (start == NULL)
+    {
+        printf("\ncell is Empty:");
+        exit(0);
+    }
+    else if (start->next == NULL)
+    {
+        ptr = start;
+        start = NULL;
+        printf("\nThe remove book  is:%d\t", ptr->info);
+        free(ptr);
+    }
+    else
+    {
+        ptr = start;
+        while (ptr->next != NULL)
         {
-                printf("\ncell is Empty:");
-                exit(0);
+            temp = ptr;
+            ptr = ptr->next;
         }
-        else if(start->next ==NULL)
-        {
-                ptr=start;
-                start=NULL;
-                printf("\nThe remove book  is:%d\t",ptr->info);
-                free(ptr);
-        }
-        else
-        {
-                ptr=start;
-                while(ptr->next!=NULL)
-                {
-                        temp=ptr;
-                        ptr=ptr->next;
-                }
-                temp->next=NULL;
-                printf("\nThe remove Book is:%d\t",ptr->info);
-                free(ptr);
-        }
+        temp->next = NULL;
+        printf("\nThe remove Book is:%d\t", ptr->info);
+        free(ptr);
+    }
 }
 void ldelete_pos()
 {
-        int i,pos;
-        struct node *temp,*ptr;
-        if(start==NULL)
+    int i, pos;
+    struct node *temp, *ptr;
+    if (start == NULL)
+    {
+        printf("\nThe book cell is Empty:\n");
+        exit(0);
+    }
+    else
+    {
+        printf("\nEnter the position of the book to be deleted:\t");
+        scanf("%d", &pos);
+        if (pos == 0)
         {
-                printf("\nThe book cell is Empty:\n");
-                exit(0);
+            ptr = start;
+            start = start->next;
+            printf("\nThe remove book  is:%d\t", ptr->info);
+            free(ptr);
         }
         else
         {
-                printf("\nEnter the position of the book to be deleted:\t");
-                scanf("%d",&pos);
-                if(pos==0)
+            ptr = start;
+            for (i = 0; i < pos; i++)
+            {
+                temp = ptr;
+                ptr = ptr->next;
+                if (ptr == NULL)
                 {
-                        ptr=start;
-                        start=start->next ;
-                        printf("\nThe remove book  is:%d\t",ptr->info  );
-                        free(ptr);
+                    printf("\nPosition not Found:\n");
+                    return;
                 }
-                else
-                {
-                        ptr=start;
-                        for(i=0;i<pos;i++) { temp=ptr; ptr=ptr->next ;
-                                if(ptr==NULL)
-                                {
-                                        printf("\nPosition not Found:\n");
-                                        return;
-                                }
-                        }
-                        temp->next =ptr->next ;
-                        printf("\nThe remove book  is:%d\t",ptr->info );
-                        free(ptr);
-                }
+            }
+            temp->next = ptr->next;
+            printf("\nThe remove book  is:%d\t", ptr->info);
+            free(ptr);
         }
+    }
 }
 
-
-
-
-
-int Stack(){
+int Stack()
+{
     int stack[10];
-int top=-1;
-int max;
+    int top = -1;
+    int max;
 
-int d;
-printf("Welcome to flower cercit programing system\n\n");
-printf("Enter your Racket flowers number:");
-scanf("%d",&max);
-while (1)
-{
+    int d;
+    printf("Welcome to flower cercit programing system\n\n");
+    printf("Enter your Racket flowers number:");
+    scanf("%d", &max);
+    while (1)
+    {
 
-printf("\nEnter 1 for putin flower in flower box\n");
-printf("Enter 2 for remove one flower\n");
-printf("Enter 3 for show the id number of flower\n");
-printf("Enter 4 for exit\n");
-scanf("%d",&d);
-switch (d)
-{
+        printf("\nEnter 1 for putin flower in flower box\n");
+        printf("Enter 2 for remove one flower\n");
+        printf("Enter 3 for show the id number of flower\n");
+        printf("Enter 4 for exit\n");
+        scanf("%d", &d);
+        switch (d)
+        {
 
-case 1:
- if(top==max){
-     printf("The Flower box is not empty:\n");
-    return 0;
-}else{
-    top++;
-    printf("Enter the flower id that you want to putin:\n");
-    scanf("%d",&stack[top]);
-    printf("your %d is succssfully Addede\n",stack[top]);
+        case 1:
+            if (top == max)
+            {
+                printf("The Flower box is not empty:\n");
+                return 0;
+            }
+            else
+            {
+                top++;
+                printf("Enter the flower id that you want to putin:\n");
+                scanf("%d", &stack[top]);
+                printf("your %d is succssfully Addede\n", stack[top]);
+            }
+            break;
+        case 2:
+            if (top == -1)
+            {
+                printf("There is  Flower  to remove\n");
+            }
+            else
+            {
+                top--;
+                printf("Successfully Flower  to remove %d:\n", stack[top]);
+            }
+            break;
+        case 3:
+            if (top == -1)
+            {
+                printf("No Flower found\n");
+                return 0;
+            }
+            else
+            {
+                printf("Your Flowers is:\n");
+                for (int i = 0; i <= top; i++)
+                {
+                    printf("%d\n", stack[i]);
+                }
+            }
+            break;
 
-
-}
-    break;
-    case 2:
-     if(top==-1){
-        printf("There is  Flower  to remove\n");
-    }else{
-     top--;
-         printf("Successfully Flower  to remove %d:\n",stack[top]);
+        default:
+            return 0;
+            break;
+        }
     }
-    break;
-case 3:
- if(top==-1){
-        printf("No Flower found\n");
-        return 0;
-    }else{
-printf("Your Flowers is:\n");
-for(int i=0;i<=top;i++){
-    printf("%d\n",stack[i]);
 }
-    }
-    break;
-
-default:
-    return 0;
-    break;
-}
-}
-
-
-}
-
-
-
-
 
 int main()
 {
@@ -546,7 +547,6 @@ int main()
     int choice;
     int in;
     printf("\n\n\nThis is seachhing Data Structure applications\n\n\n");
-
 
     printf("\n                MENU                             \n");
     printf("\n 1.Login    \n");
@@ -621,271 +621,275 @@ int main()
     return 0;
 }
 
-int Linkedlist()     
+int Linkedlist()
 {
-        int choice;
-        while(1){
-               
+    int choice;
+    while (1)
+    {
 
-                printf("\n Book self management system\n\n  \n");
-                printf("\n 1.Create a self  \n");
-                printf("\n 2.Display Th book  \n");
-                printf("\n 3.Push at the beginning    \n");
-                printf("\n 4.Push at the end  \n");
-                printf("\n 5.Push at specified position       \n");
-                printf("\n 6.remove from beginning      \n");
-                printf("\n 7.remove  from the end        \n");
-                printf("\n 8.remove  from specified position     \n");
-                printf("\n 9.Exit       \n");
-                printf("Enter your choice:\t");
-                scanf("%d",&choice);
-                switch(choice)
-                {
-                        case 1:
-                                        lcreate();
-                                        break;
-                        case 2:
-                                        ldisplay();
-                                        break;
-                        case 3: 
-                                        linsert_begin();
-                                        break;
-                        case 4:
-                                        linsert_end();
-                                        break;
-                        case 5:
-                                        linsert_pos();
-                                        break;
-                        case 6:
-                                       ldelete_begin();
-                                        break;
-                        case 7:
-                                        ldelete_end();
-                                        break;
-                        case 8:
-                                        ldelete_pos();
-                                        break;
-                        
-                        case 9:
-                                        exit(0);
-                                        break;
-                             
-                        default:
-                                        printf("\n Wrong Choice:\n");
-                                            main();
-                                        break;
-                }
+        printf("\n Book self management system\n\n  \n");
+        printf("\n 1.Create a self  \n");
+        printf("\n 2.Display Th book  \n");
+        printf("\n 3.Push at the beginning    \n");
+        printf("\n 4.Push at the end  \n");
+        printf("\n 5.Push at specified position       \n");
+        printf("\n 6.remove from beginning      \n");
+        printf("\n 7.remove  from the end        \n");
+        printf("\n 8.remove  from specified position     \n");
+        printf("\n 9.Exit       \n");
+        printf("Enter your choice:\t");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+        case 1:
+            lcreate();
+            break;
+        case 2:
+            ldisplay();
+            break;
+        case 3:
+            linsert_begin();
+            break;
+        case 4:
+            linsert_end();
+            break;
+        case 5:
+            linsert_pos();
+            break;
+        case 6:
+            ldelete_begin();
+            break;
+        case 7:
+            ldelete_end();
+            break;
+        case 8:
+            ldelete_pos();
+            break;
+
+        case 9:
+            exit(0);
+            break;
+
+        default:
+            printf("\n Wrong Choice:\n");
+            main();
+            break;
         }
-  
+    }
 }
 
 //---------------------
 
 void create()
 {
-        struct node *temp,*ptr;
-        temp=(struct node *)malloc(sizeof(struct node));
-        if(temp==NULL)
+    struct node *temp, *ptr;
+    temp = (struct node *)malloc(sizeof(struct node));
+    if (temp == NULL)
+    {
+        printf("\nOut of shelf Space:\n");
+        exit(0);
+    }
+    printf("\nEnter the page of book for the Cell:\t");
+    scanf("%d", &temp->info);
+    temp->next = NULL;
+    if (start == NULL)
+    {
+        start = temp;
+    }
+    else
+    {
+        ptr = start;
+        while (ptr->next != NULL)
         {
-                printf("\nOut of shelf Space:\n");
-                exit(0);
+            ptr = ptr->next;
         }
-        printf("\nEnter the page of book for the Cell:\t");
-        scanf("%d",&temp->info);
-        temp->next=NULL;
-        if(start==NULL)
-        {
-                start=temp;
-        }
-        else
-        {
-                ptr=start;
-                while(ptr->next!=NULL)
-                {
-                        ptr=ptr->next;
-                }
-                ptr->next=temp;
-        }
+        ptr->next = temp;
+    }
 }
 
 void display()
 {
-        struct node *ptr;
-        if(start==NULL)
+    struct node *ptr;
+    if (start == NULL)
+    {
+        printf("\nBook self is empty:\n");
+        return;
+    }
+    else
+    {
+        ptr = start;
+        printf("\nThe book List  are:\n");
+        while (ptr != NULL)
         {
-                printf("\nBook self is empty:\n");
-                return;
+            printf("%d\t", ptr->info);
+            ptr = ptr->next;
         }
-        else
-        {
-                ptr=start;
-                printf("\nThe book List  are:\n");
-                while(ptr!=NULL)
-                {
-                        printf("%d\t",ptr->info );
-                        ptr=ptr->next ;
-                }
-        }
+    }
 }
 void insert_begin()
 {
-        struct node *temp;
-        temp=(struct node *)malloc(sizeof(struct node));
-        if(temp==NULL)
-        {
-                printf("\nsorry not found the  Space:\n");
-                return;
-        }
-        printf("\nEnter the page of book for the Cell\t" );
-        scanf("%d",&temp->info);
-        temp->next =NULL;
-        if(start==NULL)
-        {
-                start=temp;
-        }
-        else
-        {
-                temp->next=start;
-                start=temp;
-        }
+    struct node *temp;
+    temp = (struct node *)malloc(sizeof(struct node));
+    if (temp == NULL)
+    {
+        printf("\nsorry not found the  Space:\n");
+        return;
+    }
+    printf("\nEnter the page of book for the Cell\t");
+    scanf("%d", &temp->info);
+    temp->next = NULL;
+    if (start == NULL)
+    {
+        start = temp;
+    }
+    else
+    {
+        temp->next = start;
+        start = temp;
+    }
 }
 void insert_end()
 {
-        struct node *temp,*ptr;
-        temp=(struct node *)malloc(sizeof(struct node));
-        if(temp==NULL)
+    struct node *temp, *ptr;
+    temp = (struct node *)malloc(sizeof(struct node));
+    if (temp == NULL)
+    {
+        printf("\nsorry not found the Space:\n");
+        return;
+    }
+    printf("\nEnter the page of book for the Cell:\t");
+    scanf("%d", &temp->info);
+    temp->next = NULL;
+    if (start == NULL)
+    {
+        start = temp;
+    }
+    else
+    {
+        ptr = start;
+        while (ptr->next != NULL)
         {
-                printf("\nsorry not found the Space:\n");
-                return;
+            ptr = ptr->next;
         }
-        printf("\nEnter the page of book for the Cell:\t" );
-        scanf("%d",&temp->info );
-        temp->next =NULL;
-        if(start==NULL)
-        {
-                start=temp;
-        }
-        else
-        {
-                ptr=start;
-                while(ptr->next !=NULL)
-                {
-                        ptr=ptr->next ;
-                }
-                ptr->next =temp;
-        }
+        ptr->next = temp;
+    }
 }
 void insert_pos()
 {
-        struct node *ptr,*temp;
-        int i,pos;
-        temp=(struct node *)malloc(sizeof(struct node));
-        if(temp==NULL)
+    struct node *ptr, *temp;
+    int i, pos;
+    temp = (struct node *)malloc(sizeof(struct node));
+    if (temp == NULL)
+    {
+        printf("\nsorry not found the Space:\n");
+        return;
+    }
+    printf("\nEnter the position for the new book to be inserted:\t");
+    scanf("%d", &pos);
+    printf("\nEnter the page number of the node:\t");
+    scanf("%d", &temp->info);
+
+    temp->next = NULL;
+    if (pos == 0)
+    {
+        temp->next = start;
+        start = temp;
+    }
+    else
+    {
+        for (i = 0, ptr = start; i < pos - 1; i++)
         {
-                printf("\nsorry not found the Space:\n");
+            ptr = ptr->next;
+            if (ptr == NULL)
+            {
+                printf("\nPosition not found for you\n");
                 return;
+            }
         }
-        printf("\nEnter the position for the new book to be inserted:\t");
-        scanf("%d",&pos);
-        printf("\nEnter the page number of the node:\t");
-        scanf("%d",&temp->info) ;
-  
-        temp->next=NULL;
-        if(pos==0)
-        {
-                temp->next=start;
-                start=temp;
-        }
-        else
-        {
-                for(i=0,ptr=start;i<pos-1;i++) { ptr=ptr->next;
-                        if(ptr==NULL)
-                        {
-                                printf("\nPosition not found for you\n");
-                                return;
-                        }
-                }
-                temp->next =ptr->next ;
-                ptr->next=temp;
-        }
+        temp->next = ptr->next;
+        ptr->next = temp;
+    }
 }
 void delete_begin()
 {
-        struct node *ptr;
-        if(ptr==NULL)
-        {
-                printf("\ncell is Empty:\n");
-                return;
-        }
-        else
-        {
-                ptr=start;
-                start=start->next ;
-                printf("\nThe remove book  is :%d\t",ptr->info);
-                free(ptr);
-        }
+    struct node *ptr;
+    if (ptr == NULL)
+    {
+        printf("\ncell is Empty:\n");
+        return;
+    }
+    else
+    {
+        ptr = start;
+        start = start->next;
+        printf("\nThe remove book  is :%d\t", ptr->info);
+        free(ptr);
+    }
 }
 void delete_end()
 {
-        struct node *temp,*ptr;
-        if(start==NULL)
+    struct node *temp, *ptr;
+    if (start == NULL)
+    {
+        printf("\ncell is Empty:");
+        exit(0);
+    }
+    else if (start->next == NULL)
+    {
+        ptr = start;
+        start = NULL;
+        printf("\nThe remove book  is:%d\t", ptr->info);
+        free(ptr);
+    }
+    else
+    {
+        ptr = start;
+        while (ptr->next != NULL)
         {
-                printf("\ncell is Empty:");
-                exit(0);
+            temp = ptr;
+            ptr = ptr->next;
         }
-        else if(start->next ==NULL)
-        {
-                ptr=start;
-                start=NULL;
-                printf("\nThe remove book  is:%d\t",ptr->info);
-                free(ptr);
-        }
-        else
-        {
-                ptr=start;
-                while(ptr->next!=NULL)
-                {
-                        temp=ptr;
-                        ptr=ptr->next;
-                }
-                temp->next=NULL;
-                printf("\nThe remove Book is:%d\t",ptr->info);
-                free(ptr);
-        }
+        temp->next = NULL;
+        printf("\nThe remove Book is:%d\t", ptr->info);
+        free(ptr);
+    }
 }
 void delete_pos()
 {
-        int i,pos;
-        struct node *temp,*ptr;
-        if(start==NULL)
+    int i, pos;
+    struct node *temp, *ptr;
+    if (start == NULL)
+    {
+        printf("\nThe book cell is Empty:\n");
+        exit(0);
+    }
+    else
+    {
+        printf("\nEnter the position of the book to be deleted:\t");
+        scanf("%d", &pos);
+        if (pos == 0)
         {
-                printf("\nThe book cell is Empty:\n");
-                exit(0);
+            ptr = start;
+            start = start->next;
+            printf("\nThe remove book  is:%d\t", ptr->info);
+            free(ptr);
         }
         else
         {
-                printf("\nEnter the position of the book to be deleted:\t");
-                scanf("%d",&pos);
-                if(pos==0)
+            ptr = start;
+            for (i = 0; i < pos; i++)
+            {
+                temp = ptr;
+                ptr = ptr->next;
+                if (ptr == NULL)
                 {
-                        ptr=start;
-                        start=start->next ;
-                        printf("\nThe remove book  is:%d\t",ptr->info  );
-                        free(ptr);
+                    printf("\nPosition not Found:\n");
+                    return;
                 }
-                else
-                {
-                        ptr=start;
-                        for(i=0;i<pos;i++) { temp=ptr; ptr=ptr->next ;
-                                if(ptr==NULL)
-                                {
-                                        printf("\nPosition not Found:\n");
-                                        return;
-                                }
-                        }
-                        temp->next =ptr->next ;
-                        printf("\nThe remove book  is:%d\t",ptr->info );
-                        free(ptr);
-                }
+            }
+            temp->next = ptr->next;
+            printf("\nThe remove book  is:%d\t", ptr->info);
+            free(ptr);
         }
+    }
 }
