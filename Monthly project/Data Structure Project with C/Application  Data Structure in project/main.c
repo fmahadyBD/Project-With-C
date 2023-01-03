@@ -232,7 +232,7 @@ void insert_begin()
         temp=(struct node *)malloc(sizeof(struct node));
         if(temp==NULL)
         {
-                printf("\nOut of Memory Space:\n");
+                printf("\nsorry not found the  Space:\n");
                 return;
         }
         printf("\nEnter the page of book for the Cell\t" );
@@ -254,7 +254,7 @@ void insert_end()
         temp=(struct node *)malloc(sizeof(struct node));
         if(temp==NULL)
         {
-                printf("\nOut of Memory Space:\n");
+                printf("\nsorry not found the Space:\n");
                 return;
         }
         printf("\nEnter the page of book for the Cell:\t" );
@@ -281,7 +281,7 @@ void insert_pos()
         temp=(struct node *)malloc(sizeof(struct node));
         if(temp==NULL)
         {
-                printf("\nOut of Memory Space:\n");
+                printf("\nsorry not found the Space:\n");
                 return;
         }
         printf("\nEnter the position for the new book to be inserted:\t");
