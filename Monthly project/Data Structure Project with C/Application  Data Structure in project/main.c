@@ -31,8 +31,16 @@ int login()
 int Sorting()  
 
 {
- int a[5] ;
+    int size;
+    prinf("ENter the number of student ");
+    scanf("%d",&size);
+    int a[5] ;
     int i, j, tem;
+
+        for(int i=0;i<size;i++){
+        printf("Enter the element of %d\n",i);
+        scanf("%d",&a[i]);
+    }
         int choice;
         while(1){
                
