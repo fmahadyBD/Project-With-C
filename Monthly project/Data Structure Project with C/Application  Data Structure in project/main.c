@@ -189,7 +189,7 @@ void create()
                 printf("\nOut of shelf Space:\n");
                 exit(0);
         }
-        printf("\nEnter the page of book for the cell:\t");
+        printf("\nEnter the page of book for the Cell:\t");
         scanf("%d",&temp->info);
         temp->next=NULL;
         if(start==NULL)
@@ -212,13 +212,13 @@ void display()
         struct node *ptr;
         if(start==NULL)
         {
-                printf("\nList is empty:\n");
+                printf("\nBook self is empty:\n");
                 return;
         }
         else
         {
                 ptr=start;
-                printf("\nThe List elements are:\n");
+                printf("\nThe book List  are:\n");
                 while(ptr!=NULL)
                 {
                         printf("%d\t",ptr->info );
@@ -235,7 +235,7 @@ void insert_begin()
                 printf("\nOut of Memory Space:\n");
                 return;
         }
-        printf("\nEnter the data value for the node:\t" );
+        printf("\nEnter the page of book for the Cell\t" );
         scanf("%d",&temp->info);
         temp->next =NULL;
         if(start==NULL)
@@ -257,7 +257,7 @@ void insert_end()
                 printf("\nOut of Memory Space:\n");
                 return;
         }
-        printf("\nEnter the data value for the node:\t" );
+        printf("\nEnter the page of book for the Cell:\t" );
         scanf("%d",&temp->info );
         temp->next =NULL;
         if(start==NULL)
@@ -284,9 +284,9 @@ void insert_pos()
                 printf("\nOut of Memory Space:\n");
                 return;
         }
-        printf("\nEnter the position for the new node to be inserted:\t");
+        printf("\nEnter the position for the new book to be inserted:\t");
         scanf("%d",&pos);
-        printf("\nEnter the data value of the node:\t");
+        printf("\nEnter the page number of the node:\t");
         scanf("%d",&temp->info) ;
   
         temp->next=NULL;
@@ -300,7 +300,7 @@ void insert_pos()
                 for(i=0,ptr=start;i<pos-1;i++) { ptr=ptr->next;
                         if(ptr==NULL)
                         {
-                                printf("\nPosition not found:[Handle with care]\n");
+                                printf("\nPosition not found for you\n");
                                 return;
                         }
                 }
@@ -320,7 +320,7 @@ void delete_begin()
         {
                 ptr=start;
                 start=start->next ;
-                printf("\nThe deleted element is :%d\t",ptr->info);
+                printf("\nThe remove book is is :%d\t",ptr->info);
                 free(ptr);
         }
 }
