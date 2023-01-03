@@ -541,8 +541,7 @@ int main()
     int choice;
     int in;
     printf("\n\n\nThis is seachhing Data Structure applications\n\n\n");
-    printf("Enter username and Password:");
-    scanf("%d", &in);
+
 
     printf("\n                MENU                             \n");
     printf("\n 1.Login    \n");
