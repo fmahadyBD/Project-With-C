@@ -5,6 +5,30 @@ int front = -1, rear = -1, circQueue[MAX];
 int pas[10];
 int usr[10];
 int dd = 1;
+void create();
+void display();
+void insert_begin();
+void insert_end();
+void insert_pos();
+void delete_begin();
+void delete_end();
+void delete_pos();
+int Linkedlist()  ;
+
+struct node
+{
+        int info;
+        struct node *next;
+};
+struct node *start=NULL;
+
+
+
+
+
+
+
+
 // Log in with lear search
 int login()
 {
@@ -12,12 +36,12 @@ int login()
     usr[0] = 1;
     pas[0] = 1;
     int kk = 0;
-    int lg;
-    prinf("Enter username and Password:");
-    scanf("%d", &lg);
+    int lg1,lg2;
+    printf("Enter username and Password:");
+    scanf("%d %d", &lg1,&lg2);
     for (int i = 0; i < 10; i++)
     {
-        if (pas[i] == 1 && usr[i] == 1)
+        if (pas[i] == lg1 && usr[i] == lg2)
         {
             kk++;
         }
@@ -126,7 +150,12 @@ int Qeue()
 
 
 
-
+void swap(int *x, int *y)
+{
+    int t = *x;
+    *x = *y;
+    *y = t;
+}
 
 
 
@@ -135,7 +164,7 @@ int Sorting()
 
 {
     int size;
-    prinf("ENter the number of student ");
+    printf("ENter the number of student ");
     scanf("%d", &size);
     int a[5];
     int i, j, tem;
@@ -203,10 +232,21 @@ for (int i = 1; i < size; i++)
             break;
         case 3:
 
+   int i, j;
+   for (i=0;i<size-1;i++){
+       for (j=i+1;j<size;j++){
+           if(a[i]>a[j]){
+               swap(&a[i], &a[j]);
+           }
+       }
+       
+}
 
-    selectionSort(a, size);
+   
        printf("The reslt of lowest to highest:");
-    printArray(a, size);
+       for (i=0; i < size; i++){
+        printf("%d ", a[i]);
+    }
     return 0;
 
             break;
@@ -220,12 +260,363 @@ for (int i = 1; i < size; i++)
     return 0;
 }
 //--------------------------
-struct node
+
+void lcreate()
 {
-        int info;
-        struct node *next;
-};
-struct node *start=NULL;
+        struct node *temp,*ptr;
+        temp=(struct node *)malloc(sizeof(struct node));
+        if(temp==NULL)
+        {
+                printf("\nOut of shelf Space:\n");
+                exit(0);
+        }
+        printf("\nEnter the page of book for the Cell:\t");
+        scanf("%d",&temp->info);
+        temp->next=NULL;
+        if(start==NULL)
+        {
+                start=temp;
+        }
+        else
+        {
+                ptr=start;
+                while(ptr->next!=NULL)
+                {
+                        ptr=ptr->next;
+                }
+                ptr->next=temp;
+        }
+}
+
+void ldisplay()
+{
+        struct node *ptr;
+        if(start==NULL)
+        {
+                printf("\nBook self is empty:\n");
+                return;
+        }
+        else
+        {
+                ptr=start;
+                printf("\nThe book List  are:\n");
+                while(ptr!=NULL)
+                {
+                        printf("%d\t",ptr->info );
+                        ptr=ptr->next ;
+                }
+        }
+}
+void linsert_begin()
+{
+        struct node *temp;
+        temp=(struct node *)malloc(sizeof(struct node));
+        if(temp==NULL)
+        {
+                printf("\nsorry not found the  Space:\n");
+                return;
+        }
+        printf("\nEnter the page of book for the Cell\t" );
+        scanf("%d",&temp->info);
+        temp->next =NULL;
+        if(start==NULL)
+        {
+                start=temp;
+        }
+        else
+        {
+                temp->next=start;
+                start=temp;
+        }
+}
+void linsert_end()
+{
+        struct node *temp,*ptr;
+        temp=(struct node *)malloc(sizeof(struct node));
+        if(temp==NULL)
+        {
+                printf("\nsorry not found the Space:\n");
+                return;
+        }
+        printf("\nEnter the page of book for the Cell:\t" );
+        scanf("%d",&temp->info );
+        temp->next =NULL;
+        if(start==NULL)
+        {
+                start=temp;
+        }
+        else
+        {
+                ptr=start;
+                while(ptr->next !=NULL)
+                {
+                        ptr=ptr->next ;
+                }
+                ptr->next =temp;
+        }
+}
+void linsert_pos()
+{
+        struct node *ptr,*temp;
+        int i,pos;
+        temp=(struct node *)malloc(sizeof(struct node));
+        if(temp==NULL)
+        {
+                printf("\nsorry not found the Space:\n");
+                return;
+        }
+        printf("\nEnter the position for the new book to be inserted:\t");
+        scanf("%d",&pos);
+        printf("\nEnter the page number of the node:\t");
+        scanf("%d",&temp->info) ;
+  
+        temp->next=NULL;
+        if(pos==0)
+        {
+                temp->next=start;
+                start=temp;
+        }
+        else
+        {
+                for(i=0,ptr=start;i<pos-1;i++) { ptr=ptr->next;
+                        if(ptr==NULL)
+                        {
+                                printf("\nPosition not found for you\n");
+                                return;
+                        }
+                }
+                temp->next =ptr->next ;
+                ptr->next=temp;
+        }
+}
+void ldelete_begin()
+{
+        struct node *ptr;
+        if(ptr==NULL)
+        {
+                printf("\ncell is Empty:\n");
+                return;
+        }
+        else
+        {
+                ptr=start;
+                start=start->next ;
+                printf("\nThe remove book  is :%d\t",ptr->info);
+                free(ptr);
+        }
+}
+void ldelete_end()
+{
+        struct node *temp,*ptr;
+        if(start==NULL)
+        {
+                printf("\ncell is Empty:");
+                exit(0);
+        }
+        else if(start->next ==NULL)
+        {
+                ptr=start;
+                start=NULL;
+                printf("\nThe remove book  is:%d\t",ptr->info);
+                free(ptr);
+        }
+        else
+        {
+                ptr=start;
+                while(ptr->next!=NULL)
+                {
+                        temp=ptr;
+                        ptr=ptr->next;
+                }
+                temp->next=NULL;
+                printf("\nThe remove Book is:%d\t",ptr->info);
+                free(ptr);
+        }
+}
+void ldelete_pos()
+{
+        int i,pos;
+        struct node *temp,*ptr;
+        if(start==NULL)
+        {
+                printf("\nThe book cell is Empty:\n");
+                exit(0);
+        }
+        else
+        {
+                printf("\nEnter the position of the book to be deleted:\t");
+                scanf("%d",&pos);
+                if(pos==0)
+                {
+                        ptr=start;
+                        start=start->next ;
+                        printf("\nThe remove book  is:%d\t",ptr->info  );
+                        free(ptr);
+                }
+                else
+                {
+                        ptr=start;
+                        for(i=0;i<pos;i++) { temp=ptr; ptr=ptr->next ;
+                                if(ptr==NULL)
+                                {
+                                        printf("\nPosition not Found:\n");
+                                        return;
+                                }
+                        }
+                        temp->next =ptr->next ;
+                        printf("\nThe remove book  is:%d\t",ptr->info );
+                        free(ptr);
+                }
+        }
+}
+
+
+
+
+
+int Stack(){
+    int stack[10];
+int top=-1;
+int max;
+
+int d;
+printf("Enter your Stack Size:");
+scanf("%d",&max);
+while (1)
+{
+
+printf("\nEnter 1 for pop\nEnter 2 for push\nEnter 3 for show\n Enter 4 for exit\n");
+scanf("%d",&d);
+switch (d)
+{
+case 1:
+     if(top==-1){
+        printf("There is no element to pop\n");
+    }else{
+     top--;
+         printf("Successfully Pop the element:\n");
+    }
+    break;
+case 2:
+ if(top==max){
+     printf("The Stack is not empty:\n");
+    return 0;
+}else{
+    top++;
+    printf("Enter the element that you want to push:\n");
+    scanf("%d",&stack[top]);
+    printf("your %d is succssfully Addede\n",stack[top]);
+
+
+}
+    break;
+case 3:
+ if(top==-1){
+        printf("No element found\n");
+        return 0;
+    }else{
+printf("Your Stacck is:\n");
+for(int i=0;i<=top;i++){
+    printf("%d\n",stack[i]);
+}
+    }
+    break;
+
+default:
+    return 0;
+    break;
+}
+}
+
+
+}
+
+
+
+
+
+int main()
+{
+
+    int choice;
+    int in;
+    printf("\n\n\nThis is seachhing Data Structure applications\n\n\n");
+    printf("Enter username and Password:");
+    scanf("%d", &in);
+
+    printf("\n                MENU                             \n");
+    printf("\n 1.Login    \n");
+
+    printf("\n 2.Registration   \n");
+
+    printf("Enter your choice:\t");
+    scanf("%d", &in);
+    switch (in)
+    {
+    case 1:
+        login();
+        break;
+
+        break;
+    case 2:
+        printf("enter user name:\n");
+        scanf("%d", &usr[dd]);
+        printf("enter user pass:\n");
+        scanf("%d", &pas[dd]);
+        dd++;
+        printf("Enter for login:\n");
+        login();
+        break;
+
+    default:
+        printf("\n Wrong Choice:\n");
+
+        break;
+    }
+
+    while (1)
+    {
+
+        printf("\n\t\t                MENU                             \n\n");
+        printf("\n 1.Sorting  application:  \n");
+        printf("\n 2.Linkedlist application:      \n");
+        printf("\n 3.Stack application:      \n");
+        printf("\n 4.Queue  application:    \n");
+        printf("\n 5.Exit       \n\n\n");
+        printf("Enter your choice:\t");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+
+        case 1:
+            Sorting();
+            break;
+        case 2:
+            Linkedlist();
+            break;
+        case 3:
+
+            Stack();
+            break;
+        case 4:
+            Qeue();
+
+            break;
+        case 5:
+
+            exit(0);
+            break;
+
+        default:
+            printf("\n Wrong Choice:\n");
+
+            break;
+        }
+    }
+
+    return 0;
+}
+
 int Linkedlist()     
 {
         int choice;
@@ -247,28 +638,28 @@ int Linkedlist()
                 switch(choice)
                 {
                         case 1:
-                                        create();
+                                        lcreate();
                                         break;
                         case 2:
-                                        display();
+                                        ldisplay();
                                         break;
                         case 3: 
-                                        insert_begin();
+                                        linsert_begin();
                                         break;
                         case 4:
-                                        insert_end();
+                                        linsert_end();
                                         break;
                         case 5:
-                                        insert_pos();
+                                        linsert_pos();
                                         break;
                         case 6:
-                                        delete_begin();
+                                       ldelete_begin();
                                         break;
                         case 7:
-                                        delete_end();
+                                        ldelete_end();
                                         break;
                         case 8:
-                                        delete_pos();
+                                        ldelete_pos();
                                         break;
                         
                         case 9:
@@ -281,8 +672,11 @@ int Linkedlist()
                                         break;
                 }
         }
-        return 0;
+  
 }
+
+//---------------------
+
 void create()
 {
         struct node *temp,*ptr;
@@ -490,151 +884,4 @@ void delete_pos()
                         free(ptr);
                 }
         }
-}
-
-//---------------------
-
-
-
-int Stack(){
-    int stack[10];
-int top=-1;
-int max;
-
-int d;
-printf("Enter your Stack Size:");
-scanf("%d",&max);
-while (1)
-{
-
-printf("\nEnter 1 for pop\nEnter 2 for push\nEnter 3 for show\n Enter 4 for exit\n");
-scanf("%d",&d);
-switch (d)
-{
-case 1:
-     if(top==-1){
-        printf("There is no element to pop\n");
-    }else{
-     top--;
-         printf("Successfully Pop the element:\n");
-    }
-    break;
-case 2:
- if(top==max){
-     printf("The Stack is not empty:\n");
-    return 0;
-}else{
-    top++;
-    printf("Enter the element that you want to push:\n");
-    scanf("%d",&stack[top]);
-    printf("your %d is succssfully Addede\n",stack[top]);
-
-
-}
-    break;
-case 3:
- if(top==-1){
-        printf("No element found\n");
-        return 0;
-    }else{
-printf("Your Stacck is:\n");
-for(int i=0;i<=top;i++){
-    printf("%d\n",stack[i]);
-}
-    }
-    break;
-
-default:
-    return 0;
-    break;
-}
-}
-
-
-}
-
-
-
-
-
-int main()
-{
-
-    int choice;
-    int in;
-    prinf("\n\n\nThis is seachhing Data Structure applications\n\n\n");
-    prinf("Enter username and Password:");
-    scanf("%d", &in);
-
-    printf("\n                MENU                             \n");
-    printf("\n 1.Login    \n");
-
-    printf("\n 2.Registration   \n");
-
-    printf("Enter your choice:\t");
-    scanf("%d", &in);
-    switch (in)
-    {
-    case 1:
-        login();
-        break;
-
-        break;
-    case 2:
-        printf("enter user name:\n");
-        scanf("%d", &usr[dd]);
-        printf("enter user pass:\n");
-        scanf("%d", &pas[dd]);
-        dd++;
-        prinf("Enter for login:\n");
-        login();
-        break;
-
-    default:
-        printf("\n Wrong Choice:\n");
-
-        break;
-    }
-
-    while (1)
-    {
-
-        printf("\n\t\t                MENU                             \n\n");
-        printf("\n 1.Sorting  application:  \n");
-        printf("\n 2.Linkedlist application:      \n");
-        printf("\n 3.Stack application:      \n");
-        printf("\n 4.Queue  application:    \n");
-        printf("\n 5.Exit       \n\n\n");
-        printf("Enter your choice:\t");
-        scanf("%d", &choice);
-        switch (choice)
-        {
-
-        case 1:
-            Sorting();
-            break;
-        case 2:
-            Linkedlist();
-            break;
-        case 3:
-
-            Stack();
-            break;
-        case 4:
-            Qeue();
-
-            break;
-        case 5:
-
-            exit(0);
-            break;
-
-        default:
-            printf("\n Wrong Choice:\n");
-
-            break;
-        }
-    }
-
-    return 0;
 }
