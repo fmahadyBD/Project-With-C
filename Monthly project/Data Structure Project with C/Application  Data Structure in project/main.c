@@ -480,42 +480,47 @@ int top=-1;
 int max;
 
 int d;
-printf("Enter your Stack Size:");
+printf("Welcome to flower cercit programing system\n\n");
+printf("Enter your Racket flowers number:");
 scanf("%d",&max);
 while (1)
 {
 
-printf("\nEnter 1 for pop\nEnter 2 for push\nEnter 3 for show\n Enter 4 for exit\n");
+printf("\nEnter 1 for putin flower in flower box\n");
+printf("Enter 2 for remove one flower\n");
+printf("Enter 3 for show the id number of flower\n");
+printf("Enter 4 for exit\n");
 scanf("%d",&d);
 switch (d)
 {
+
 case 1:
-     if(top==-1){
-        printf("There is no element to pop\n");
-    }else{
-     top--;
-         printf("Successfully Pop the element:\n");
-    }
-    break;
-case 2:
  if(top==max){
-     printf("The Stack is not empty:\n");
+     printf("The Flower box is not empty:\n");
     return 0;
 }else{
     top++;
-    printf("Enter the element that you want to push:\n");
+    printf("Enter the flower id that you want to putin:\n");
     scanf("%d",&stack[top]);
     printf("your %d is succssfully Addede\n",stack[top]);
 
 
 }
     break;
+    case 2:
+     if(top==-1){
+        printf("There is  Flower  to remove\n");
+    }else{
+     top--;
+         printf("Successfully Flower  to remove %d:\n",stack[top]);
+    }
+    break;
 case 3:
  if(top==-1){
-        printf("No element found\n");
+        printf("No Flower found\n");
         return 0;
     }else{
-printf("Your Stacck is:\n");
+printf("Your Flowers is:\n");
 for(int i=0;i<=top;i++){
     printf("%d\n",stack[i]);
 }
