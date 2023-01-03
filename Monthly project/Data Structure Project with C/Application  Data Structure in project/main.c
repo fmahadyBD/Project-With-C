@@ -68,6 +68,7 @@ int Sorting()
                     }
                 }
             }
+            printf("The reslt of lowest to highest:");
             for (i = 0; i < 5; i++)
             {
                 printf("%d ", a[i]);
