@@ -36,6 +36,7 @@ int Sorting()
     scanf("%d", &size);
     int a[5];
     int i, j, tem;
+         int  value, hole;
 
     for (int i = 0; i < size; i++)
     {
@@ -73,11 +74,28 @@ int Sorting()
             {
                 printf("%d ", a[i]);
             }
-
-        
-
             break;
         case 2:
+
+
+for (int i = 1; i < size; i++)
+    {
+        value = a[i];
+        hole = i;
+        while (hole > 0 && a[hole - 1] > value)
+        {
+            a[hole] = a[hole - 1];
+            hole--;
+        }
+        a[hole] = value;
+    }
+
+       printf("The reslt of lowest to highest:");
+    for (i = 0; i < size; i++)
+    {
+        printf("%d ", a[i]);
+    }
+
 
             break;
         case 3:
