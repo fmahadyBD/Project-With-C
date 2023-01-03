@@ -100,6 +100,12 @@ for (int i = 1; i < size; i++)
             break;
         case 3:
 
+
+    selectionSort(a, size);
+       printf("The reslt of lowest to highest:");
+    printArray(a, size);
+    return 0;
+
             break;
 
         default:
