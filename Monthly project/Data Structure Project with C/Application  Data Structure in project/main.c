@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-
+#define MAX 10 
+int front = -1, rear = -1, circQueue[MAX];
 int pas[10];
 int usr[10];
 int dd = 1;
